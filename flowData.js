@@ -1,5 +1,4 @@
 console.log("flowData.js loaded");
-console.log("flowData.js loaded");
 const flowData = {
   start: {
     type: "dropdown",
@@ -181,7 +180,6 @@ const flowData = {
   controlerr: { result: "基板不良の可能性があります。" },
   eleerr: { result: "電源ブレーカーで電圧を測定してください。" },
   remoconerr: { result: "リモコンか本体受信部の故障の可能性があります" },
-
   heat_valve: { result: "暖房側の膨張弁の詰まりの可能性があります。" },
   heat_gas: { result: "冷媒不足（ガス不足）の可能性があります。" },
   NormalHeat: { result: "熱負荷が大きすぎるか\n能力不足の可能性があります。" }
