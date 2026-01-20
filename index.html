@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>エアコン故障診断</title>
+
+<style>
+  body { font-family: sans-serif; background: #f5f5f5; padding: 20px; }
+  #app { max-width: 400px; margin: auto; background: white; padding: 20px; border-radius: 10px; }
+  .question-box p { white-space: pre-line; }
+  button, select { padding: 10px; margin-top: 10px; font-size: 1rem; border-radius: 6px; }
+  #result { margin-top: 20px; font-size: 1.1rem; font-weight: bold; color: #0000ff; }
+  .title-buttons button { margin-right: 5px; }
+</style>
+</head>
+
+<body>
+
+<div id="app">
+  <h2>エアコン故障診断</h2>
+
+  <div class="title-buttons">
+    <button onclick="goBack()">戻る</button>
+    <button onclick="resetFlow()">最初から</button>
+  </div>
+
+  <div id="flow"></div>
+  <div id="result"></div>
+</div>
+
+<script>
+// ============================
+// flowData.json を読み込む
+// ============================
+let flowData = {};
+let current = "start";
+let history = [];
+
+async function loadFlowData() {
+  const url = "https://KishidaSetubiService.github.io/ac-diagnosis/flowData.json";
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    document.getElementById("flow").innerHTML = "flowData.json の読み込みに失敗しました";
+    return;
+  }
+
+  flowData = await response.json();
+  renderNode(current);
+}
+
+loadFlowData();
+
+// ============================
+// UI ロジック
+// ============================
+function renderNode(name) {
+  const node = flowData[name];
+  const flow = document.getElementById("flow");
+  const result = document.getElementById("result");
+
+  flow.innerHTML = "";
+  result.innerHTML = "";
+
+  if (!node) {
+    result.textContent = "エラー：ノードが見つかりません (" + name + ")";
+    return;
+  }
+
+  if (node.result) {
+    result.textContent = node.result;
+    return;
+  }
+
+  const box = document.createElement("div");
+  box.className = "question-box";
+
+  const q = document.createElement("p");
+  q.textContent = node.question;
+  box.appendChild(q);
+
+  if (node.type === "dropdown") {
+    const select = document.createElement("select");
+    select.innerHTML = `<option value="">選択してください</option>`;
+
+    for (const key in node.options) {
+      const opt = document.createElement("option");
+      opt.value = key;
+      opt.textContent = key;
+      select.appendChild(opt);
+    }
+
+    select.onchange = () => {
+      if (select.value) {
+        history.push(current);
+        current = node.options[select.value];
+        renderNode(current);
+      }
+    };
+
+    box.appendChild(select);
+  }
+
+  if (node.type === "button") {
+    const yes = document.createElement("button");
+    yes.textContent = "YES";
+    yes.onclick = () => {
+      history.push(current);
+      current = node.yes;
+      renderNode(current);
+    };
+
+    const no = document.createElement("button");
+    no.textContent = "NO";
+    no.onclick = () => {
+      history.push(current);
+      current = node.no;
+      renderNode(current);
+    };
+
+    box.appendChild(yes);
+    box.appendChild(no);
+  }
+
+  flow.appendChild(box);
+}
+
+function resetFlow() {
+  current = "start";
+  history = [];
+  renderNode(current);
+}
+
+function goBack() {
+  if (history.length > 0) {
+    current = history.pop();
+    renderNode(current);
+  }
+}
+</script>
+
+</body>
+</html>
