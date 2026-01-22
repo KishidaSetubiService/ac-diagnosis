@@ -19,6 +19,7 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px #ccc;
+    position: relative;
   }
 
   #app > p:first-child {
@@ -106,13 +107,13 @@
   <p>テスト運用中</p>
 
   <div id="version" style="
-    position: fixed;
+    position: absolute;
     top: 10px;
     right: 10px;
     font-size: 12px;
     color: #666;
     opacity: 0.8;
-    z-index: 9999;
+    z-index: 10;
   ">
     ver. ----
   </div>
@@ -122,20 +123,7 @@
     <div class="title-buttons">
       <button onclick="goBack()">戻る</button>
       <button onclick="resetFlow()">最初から</button>
-    </div>
-
-    <div id="version" style="
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      font-size: 12px;
-      color: #666;
-      opacity: 0.8;
-      z-index: 9999;
-    ">
-      ver. ----
-    </div>
-    
+    </div>  
   </div>
 
   <div id="flow"></div>
@@ -265,4 +253,5 @@ function goBack() {
 </body>
 
 </html>
+
 
