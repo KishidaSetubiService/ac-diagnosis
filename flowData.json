@@ -1,4 +1,5 @@
 {
+  "version": "0001",
   "start": {
     "type": "dropdown",
     "question": "症状は？",
