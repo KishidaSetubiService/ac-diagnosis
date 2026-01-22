@@ -27,6 +27,25 @@
     color: #F00;
   }
 
+  .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+
+  .test-mode {
+    font-size: 0.7rem;
+    color: #F00;
+    margin: 0;
+  }
+
+  #version {
+    font-size: 12px;
+    color: #666;
+    opacity: 0.8;
+  }
+
   .title-row {
     min-height: 40px;
     display: flex;
@@ -104,21 +123,12 @@
 
 <body>
 
-<div id="app">
-  <p>テスト運用中</p>
-
-  <div id="version" style="
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 12px;
-    color: #666;
-    opacity: 0.8;
-    z-index: 10;
-  ">
-    ver. ----
+  <div id="app">
+    <div class="top-row">
+    <p class="test-mode">テスト運用中</p>
+    <div id="version">ver. ----</div>
   </div>
-  
+
   <div class="title-row">
     <h2>エアコン故障診断</h2>
     <div class="title-buttons">
@@ -254,6 +264,7 @@ function goBack() {
 </body>
 
 </html>
+
 
 
 
