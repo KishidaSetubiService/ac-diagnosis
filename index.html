@@ -206,7 +206,11 @@ function renderNode(name) {
   }
 
   if (node.result) {
-    result.textContent = node.result;
+    if (node.result.startsWith("http")) {
+      result.innerHTML = `<a href="${node.result}" target="_blank">${node.result}</a>`;
+    } else {
+      result.innerHTML = node.result;
+    }
     return;
   }
 
@@ -280,6 +284,7 @@ function goBack() {
 </body>
 
 </html>
+
 
 
 
