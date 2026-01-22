@@ -66,6 +66,15 @@
   .title-buttons button:hover {
     background: #cc5252;
   }
+  
+  @media (max-width: 420px) {
+    .title-row {
+      flex-wrap: wrap;   /* ← スマホでは折り返しを許可 */
+    }
+    .title-buttons {
+      margin-top: 6px;   /* ← タイトルとボタンの間に余白を追加 */
+    }
+  }
 
   .question-box {
     margin-bottom: 20px;
@@ -254,6 +263,7 @@ function goBack() {
 </body>
 
 </html>
+
 
 
 
