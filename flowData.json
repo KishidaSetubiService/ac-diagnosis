@@ -1,5 +1,5 @@
 {
-  "version": "0001",
+  "version": "0002",
   "start": {
     "type": "dropdown",
     "question": "症状は？",
@@ -14,6 +14,15 @@
     "question": "表示ランプが点滅していますか？",
     "yes": "Led_Blinking",
     "no": "q_volt"
+  },
+  "Led_Blinking": {
+    "type": "dropdown",
+    "question": "メーカー名は？",
+    "options": {
+      "ダイキン工業㈱": "Led_Blinking_D",
+      "三菱電機㈱": "Led_Blinking_ME",
+      "その他": "Led_Blinking_O"
+    }
   },
   "q_volt": {
     "type": "button",
@@ -145,8 +154,14 @@
   "LowAirflow": {
     "result": "フィルターの汚れ\nファンの汚れ\n熱交換器の汚れの可能性があります"
   },
-  "Led_Blinking": {
-    "result": "何らかの異常で停止しています。\n点滅周期を確認して\nメーカー別の診断をしてください。"
+  "Led_Blinking_D": {
+    "result": "https://www.daikincc.com/errorcode/remocon/index.php"
+  },
+  "Led_Blinking_ME": {
+    "result": "https://www.mitsubishielectric.co.jp/ldg/wink/ssl/wink_parts/manual/code.html"
+  },
+  "Led_Blinking_O": {
+    "result": "何らかの異常で停止しています。\n点滅周期を確認して\nメーカーのホームページで診断をしてください。"
   },
   "Normal": {
     "result": "熱負荷が大きすぎるか\n能力不足の可能性があります。"
