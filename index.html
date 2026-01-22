@@ -111,6 +111,19 @@
       <button onclick="goBack()">戻る</button>
       <button onclick="resetFlow()">最初から</button>
     </div>
+
+    <div id="version" style="
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      font-size: 12px;
+      color: #666;
+      opacity: 0.8;
+      z-index: 9999;
+    ">
+      ver. ----
+    </div>
+    
   </div>
 
   <div id="flow"></div>
@@ -125,6 +138,8 @@ let flowData = {};
 let current = "start";
 let history = [];
 
+document.getElementById("version").textContent = "ver. " + flowData.version;
+  
 async function loadFlowData() {
   const url = "https://KishidaSetubiService.github.io/ac-diagnosis/flowData.json";
   const response = await fetch(url);
@@ -135,6 +150,13 @@ async function loadFlowData() {
   }
 
   flowData = await response.json();
+
+  // ★ ここで version を画面に表示する
+  const versionBox = document.getElementById("version");
+  if (versionBox && flowData.version) {
+    versionBox.textContent = "ver. " + flowData.version;
+  }
+
   renderNode(current);
 }
 
@@ -229,4 +251,5 @@ function goBack() {
 </script>
 
 </body>
+
 </html>
