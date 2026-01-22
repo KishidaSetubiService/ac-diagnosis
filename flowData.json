@@ -30,18 +30,24 @@
   "q_c0": {
     "type": "button",
     "question": "室内の吸込温度と吹出温度の差は\n10℃以上ですか？",
-    "yes": "q_c1",
+    "yes": "q_c1_1",
     "no": "q_c3"
   },
-  "q_c1": {
+  "q_c1_1": {
+    "type": "button",
+    "question": "吹出風は弱いですか？",
+    "yes": "q_c1_2",
+    "no": "Normal"
+  },
+  "q_c1_2": {
     "type": "button",
     "question": "風量の切替はできますか？\n",
-    "yes": "q_c2",
+    "yes": "q_c1_3",
     "no": "in_th_err"
   },
-  "q_c2": {
+  "q_c1_3": {
     "type": "button",
-    "question": "風切り音がしていますか？\n吹出風にムラがありますか？",
+    "question": "フィルターがよごれてませんか？\n風切り音がしていますか？\n吹出風にムラがありますか？",
     "yes": "LowAirflow",
     "no": "Normal"
   },
@@ -93,7 +99,7 @@
   "q_h0": {
     "type": "button",
     "question": "室内の吸込温度と吹出温度の差は\n15℃以上ですか？",
-    "yes": "q_h1",
+    "yes": "q_c1_1",
     "no": "q_h_precheck"
   },
   "q_h_precheck": {
@@ -102,62 +108,33 @@
     "yes": "q_h_defrost",
     "no": "q_h_precheck2"
   },
-  "q_h_defrost": {
-    "result": "霜取り運転中、または外気温低下の影響で\n一時的に暖まりが悪くなることがあります。\n数分〜10分ほど様子を見てください。"
-  },
   "q_h_precheck2": {
     "type": "button",
     "question": "室外機の熱交換器（フィン）に\nホコリ・ゴミ・綿ボコリが付着していますか？",
     "yes": "heat_exchanger_dirty",
-    "no": "q_h_filter"
-  },
-  "heat_exchanger_dirty": {
-    "result": "室外機熱交換器の目詰まりの可能性があります。\nフィンの清掃を行ってください。"
-  },
-  "q_h_filter": {
-    "type": "button",
-    "question": "室内機フィルターにホコリが\n多く付着していますか？",
-    "yes": "heat_filter_dirty",
-    "no": "q_h1"
-  },
-  "heat_filter_dirty": {
-    "result": "室内機フィルターの目詰まりにより\n暖房能力が低下している可能性があります。\nフィルター清掃を行ってください。"
-  },
-  "q_h1": {
-    "type": "button",
-    "question": "風量が少ないですか？\n風切り音がしていますか？\n吹出風にムラがありますか？",
-    "yes": "LowAirflow",
     "no": "q_h2"
   },
   "q_h2": {
     "type": "dropdown",
-    "question": "高圧は2.5MPa以上ですか？\n(R22の場合は2.0MPa以上ですか？)",
+    "question": "高圧圧力はどのくらいですか？\n(R22)",
     "options": {
-      "yes": "q_h3",
-      "no": "q_h_low",
-      "圧力がわかりません": "q_h4"
+      "2.0MPa未満\n(1.5MPa未満)": "q_h_low",
+      "2.0～3.5MPa\n(1.5～2.7MPa)": "Normal",
+      "3.5MPa以上\n(2.7MPa以上)": "q_h_hi",
+      "圧力がわかりません": "q_h3"
     }
   },
   "q_h3": {
-    "type": "dropdown",
-    "question": "高圧は3.0MPa以上ですか？\n(R22の場合は2.5MPa以上ですか？)",
-    "options": {
-      "yes": "q_h3",
-      "no": "q_h_low",
-      "圧力不明": "q_h4"
-    }
-  },
-  "q_h4": {
     "type": "button",
-    "question": "液管（室外機細い管）は\nとても熱いですか？",
-    "yes": "heat_gas",
-    "no": "heat_valve"
+    "question": "室外機液管は暖かいですか？",
+    "yes": "valve",
+    "no": "gas"
   },
   "q_h_low": {
     "type": "button",
-    "question": "過冷却度（SC）は5℃以下ですか？",
-    "yes": "heat_valve",
-    "no": "heat_gas"
+    "question": "過冷却度（SC）は0℃以上ですか？",
+    "yes": "valve",
+    "no": "gas"
   },
   "valve": {
     "result": "膨張弁の詰まりの可能性があります。"
@@ -206,5 +183,14 @@
   },
   "comp_err": {
     "result": "圧縮機の圧縮不良の可能性があります。"
+  },
+  "q_h_defrost": {
+    "result": "霜取り運転中、または外気温低下の影響で\n一時的に暖まりが悪くなることがあります。\n20分程度様子を見てください。"
+  },
+  "heat_exchanger_dirty": {
+    "result": "室外機熱交換器の目詰まりにより能力がおちています。\nフィンの清掃を行ってください。"
+  },
+  "q_h_hi": {
+    "result": "冷媒配管中に空気が混入している可能性があります。"
   }
 }
