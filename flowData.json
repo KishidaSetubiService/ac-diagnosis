@@ -1,5 +1,5 @@
 {
-  "version": "0002",
+  "version": "0003",
   "start": {
     "type": "dropdown",
     "question": "症状は？",
@@ -11,7 +11,7 @@
   },
   "q0": {
     "type": "button",
-    "question": "表示ランプが点滅していますか？",
+    "question": "表示ランプが点滅していますか？\nエラーコードが表示されていますか？",
     "yes": "Led_Blinking",
     "no": "q_volt"
   },
@@ -21,6 +21,12 @@
     "options": {
       "ダイキン工業㈱": "Led_Blinking_D",
       "三菱電機㈱": "Led_Blinking_ME",
+      "三菱重工業㈱": "Led_Blinking_MH",
+      "日本キヤリア㈱\n東芝㈱": "Led_Blinking_T",
+      "日立　ルームエアコン": "Led_Blinking_HR",
+      "日立　業務用エアコン": "Led_Blinking_HP",
+      "Panasonic": "Led_Blinking_P",
+      "SHARP": "Led_Blinking_S",
       "その他": "Led_Blinking_O"
     }
   },
@@ -159,6 +165,24 @@
   },
   "Led_Blinking_ME": {
     "result": "https://www.mitsubishielectric.co.jp/ldg/wink/ssl/wink_parts/manual/code.html"
+  },
+  "Led_Blinking_MH": {
+    "result": "https://www.mhi-mth.co.jp/mobile/"
+  },
+  "Led_Blinking_T": {
+    "result": "https://www.toshiba-carrier.co.jp/product_search/errorcode/"
+  },
+  "Led_Blinking_HR": {
+    "result": "https://kadenfan.hitachi.co.jp/support/ra/q_a/category007.html"
+  },
+  "Led_Blinking_HP": {
+    "result": "https://www.hitachi-gls.co.jp/kentatsu/search/alarmcode"
+  },
+  "Led_Blinking_P": {
+    "result": "https://jpn.faq.panasonic.com/app/answers/detail/a_id/9669/p/1748"
+  },
+  "Led_Blinking_S": {
+    "result": "https://cs.sharp.co.jp/trouble_check/div/air_con/navi/ay_diag19.html"
   },
   "Led_Blinking_O": {
     "result": "何らかの異常で停止しています。\n点滅周期を確認して\nメーカーのホームページで診断をしてください。"
