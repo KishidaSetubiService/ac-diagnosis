@@ -22,12 +22,12 @@
       "ダイキン工業㈱": "Led_Blinking_D",
       "三菱電機㈱": "Led_Blinking_ME",
       "三菱重工業㈱": "Led_Blinking_MH",
-      "日本キヤリア㈱\n東芝㈱": "Led_Blinking_T",
+      "日本キヤリア㈱　旧東芝": "Led_Blinking_T",
       "日立　ルームエアコン": "Led_Blinking_HR",
       "日立　業務用エアコン": "Led_Blinking_HP",
       "Panasonic": "Led_Blinking_P",
       "SHARP": "Led_Blinking_S",
-      "ゼネラル\n富士通": "Led_Blinking_G",
+      "ゼネラル　旧富士通": "Led_Blinking_G",
       "その他": "Led_Blinking_O"
     }
   },
