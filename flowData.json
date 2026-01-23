@@ -27,6 +27,7 @@
       "日立　業務用エアコン": "Led_Blinking_HP",
       "Panasonic": "Led_Blinking_P",
       "SHARP": "Led_Blinking_S",
+      "ゼネラル\n富士通": "Led_Blinking_G",
       "その他": "Led_Blinking_O"
     }
   },
@@ -183,6 +184,9 @@
   },
   "Led_Blinking_S": {
     "result": "https://cs.sharp.co.jp/trouble_check/div/air_con/navi/ay_diag19.html"
+  },
+  "Led_Blinking_G": {
+    "result": "https://www.generalww.com/jp/support/faq/as/0102/index.html"
   },
   "Led_Blinking_O": {
     "result": "何らかの異常で停止しています。\n点滅周期を確認して\nメーカーのホームページで診断をしてください。"
