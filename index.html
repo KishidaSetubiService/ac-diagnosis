@@ -123,6 +123,9 @@
     margin-top: 20px;
     font-size: 1.1rem;
     font-weight: bold;
+    white-space: normal;     /* ← 自然に折り返す */
+    word-wrap: break-word;   /* ← 長い単語も折り返す */
+    overflow-wrap: break-word;
     color: #0000ff;
   }
 
@@ -292,6 +295,7 @@ function goBack() {
 </body>
 
 </html>
+
 
 
 
